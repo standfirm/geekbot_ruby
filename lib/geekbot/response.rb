@@ -6,8 +6,8 @@ module Geekbot
       @raw_status  = response.status
     end
 
-    def body
-      @raw_body
+    def status
+      @raw_status
     end
 
     def headers
@@ -16,8 +16,8 @@ module Geekbot
       end
     end
 
-    def status
-      @raw_status
+    def body
+      @raw_body
     end
   end
 end
