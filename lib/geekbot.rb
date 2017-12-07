@@ -1,5 +1,5 @@
-require 'geekbot/version'
+require 'faraday'
+require 'faraday_middleware'
 
-module Geekbot
-  # Your code goes here...
-end
+require 'geekbot/client'
+require 'geekbot/version'
