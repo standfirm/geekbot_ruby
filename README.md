@@ -1,8 +1,8 @@
-# Geekbot
+# geekbot_ruby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/geekbot`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![CircleCI](https://circleci.com/gh/standfirm/geekbot_ruby.svg?style=svg)](https://circleci.com/gh/standfirm/geekbot_ruby)
 
-TODO: Delete this and the text above, and describe your gem
+Geekbot API library, written in Ruby
 
 ## Installation
 
@@ -14,30 +14,61 @@ gem 'geekbot'
 
 And then execute:
 
-    $ bundle
+```shell
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install geekbot
+```shell
+$ gem install geekbot
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Initialization
+client = Geekbot::Client.new(access_token: "<your_access_token")
 
-## Development
+# Team API
+client.index_teams
+#=> GET /v1/teams
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# Report API
+client.index_reports
+#=> GET /v1/reports
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Standup API
+client.index_standups
+#=> GET /v1/standups
+
+client.show_standup(id: xxx)
+#=> GET /v1/standups/:id
+
+client.create_standup(params: param)
+#=> POST /v1/standups
+
+client.update_standup(id: xxx, params: param)
+#=> PATCH /v1/standups/:id
+
+client.replace_standup(id: xxx, params: param)
+#=> PUT /v1/standups/:id
+
+client.destroy_standup(id: xxx)
+#=> DELETE /v1/standups/:id
+```
+see also: [Geekbot API Docs](https://geekbot.io/developers)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/geekbot. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/standfirm/geekbot_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+1. Fork it ( https://github.com/standfirm/geekbot_ruby/fork )
+1. Create your feature branch (git checkout -b my-new-feature)
+1. Commit your changes (git commit -am 'Add some feature')
+1. Push to the branch (git push origin my-new-feature)
+1. Create a new Pull Request
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Geekbot project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/geekbot/blob/master/CODE_OF_CONDUCT.md).
