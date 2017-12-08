@@ -1,5 +1,9 @@
-require 'faraday'
-require 'faraday_middleware'
+module Geekbot
+  autoload :Client, 'geekbot/client'
 
-require 'geekbot/client'
-require 'geekbot/version'
+  autoload :Question, 'geekbot/question'
+  autoload :Report, 'geekbot/report'
+  autoload :Standup, 'geekbot/standup'
+  autoload :Team, 'geekbot/team'
+  autoload :User, 'geekbot/user'
+end
