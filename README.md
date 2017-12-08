@@ -28,7 +28,7 @@ $ gem install geekbot
 
 ```ruby
 # Initialization
-client = Geekbot::Client.new(access_token: "<your_access_token")
+client = Geekbot::Client.new(access_token: "<your_access_token>")
 
 # Team API
 client.index_teams
@@ -60,8 +60,6 @@ client.destroy_standup(id: xxx)
 see also: [Geekbot API Docs](https://geekbot.io/developers)
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/standfirm/geekbot_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 1. Fork it ( https://github.com/standfirm/geekbot_ruby/fork )
 1. Create your feature branch (git checkout -b my-new-feature)
