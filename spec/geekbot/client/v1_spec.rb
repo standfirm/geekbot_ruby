@@ -8,11 +8,24 @@ RSpec.describe Geekbot::Client::V1 do
     Faraday.new do |builder|
       builder.adapter :test do |stub|
         user = { id: 'A0', email: 'test@example.com', realname: 'Test' }
-        stub.get('/v1/teams/') { |env| [200, {}, { id: 1, name: 'Test', users:[user] }]}
-        stub.get('/v1/reports/') { |env| [200, {}, [{ id: 1, slack_ts: '1.2', standup_id: 1, timestamp: 1, member: user, channel: 'general', questions: [{ id: 1, question: 'How are you?', images: [] }] }]] }
+
+        stub.get('/v1/teams/') do |_env|
+          [200, {}, { id: 1, name: 'Test', users: [user] }]
+        end
+
+        stub.get('/v1/reports/') do |_env|
+          [200, {}, [{ id: 1, slack_ts: '1.2', standup_id: 1, timestamp: 1, member: user, channel: 'general', questions: [{ id: 1, question: 'How are you?', images: [] }] }]]
+        end
+
         standup = { id: 1, name: 'A Standup', time: '10:00:00', wait_time: 0 }
-        stub.get('/v1/standups/') { |env| [200, {}, [standup]] }
-        stub.get('/v1/standups/1') { |env| [200, {}, standup] }
+
+        stub.get('/v1/standups/') do |_env|
+          [200, {}, [standup]]
+        end
+
+        stub.get('/v1/standups/1') do |_env|
+          [200, {}, standup]
+        end
       end
     end
   end
