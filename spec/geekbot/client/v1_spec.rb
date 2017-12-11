@@ -4,6 +4,7 @@ require 'geekbot/client/v1'
 
 RSpec.describe Geekbot::Client::V1 do
   let(:client) { described_class.new(connection) }
+  let(:param) { { id: 1, name: 'A Standup', time: '10:00:00', wait_time: 0 } }
   let(:connection) do
     Faraday.new do |builder|
       builder.adapter :test do |stub|
@@ -24,6 +25,22 @@ RSpec.describe Geekbot::Client::V1 do
         end
 
         stub.get('/v1/standups/1') do |_env|
+          [200, {}, standup]
+        end
+
+        stub.post('/v1/standups') do |_env|
+          [200, {}, standup]
+        end
+
+        stub.patch('/v1/standups/1', standup) do |_env|
+          [200, {}, standup]
+        end
+
+        stub.put('/v1/standups/1', standup) do |_env|
+          [200, {}, standup]
+        end
+
+        stub.delete('/v1/standups/1') do |_env|
           [200, {}, standup]
         end
       end
@@ -50,6 +67,30 @@ RSpec.describe Geekbot::Client::V1 do
 
   describe '#standup' do
     subject { client.standup(1) }
+
+    it { is_expected.to be_a(Geekbot::Standup) }
+  end
+
+  describe '#create_standup' do
+    subject { client.create_standup(params: param) }
+
+    it { is_expected.to be_a(Geekbot::Standup) }
+  end
+
+  describe '#update_standup' do
+    subject { client.update_standup(id: 1, params: param) }
+
+    it { is_expected.to be_a(Geekbot::Standup) }
+  end
+
+  describe '#replace_standup' do
+    subject { client.replace_standup(id: 1, params: param) }
+
+    it { is_expected.to be_a(Geekbot::Standup) }
+  end
+
+  describe '#destroy_standup' do
+    subject { client.destroy_standup(id: 1) }
 
     it { is_expected.to be_a(Geekbot::Standup) }
   end
