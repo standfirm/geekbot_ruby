@@ -20,7 +20,7 @@ module Geekbot
         res.body.map { |b| Standup.new(b) }
       end
 
-      def standup(id)
+      def standup(id:)
         res = @connection.get("/v1/standups/#{id}")
         Standup.new(res.body)
       end

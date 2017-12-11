@@ -66,7 +66,7 @@ RSpec.describe Geekbot::Client::V1 do
   end
 
   describe '#standup' do
-    subject { client.standup(1) }
+    subject { client.standup(id: 1) }
 
     it { is_expected.to be_a(Geekbot::Standup) }
   end
