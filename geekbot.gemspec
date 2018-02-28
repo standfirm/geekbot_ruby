@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Geekbot API client library, written in Ruby'
   spec.description   = 'Geekbot API client library, written in Ruby'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = 'https://github.com/standfirm/geekbot_ruby'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
