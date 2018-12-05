@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Geekbot
   module Connection
     def connection
@@ -12,7 +14,7 @@ module Geekbot
 
     def faraday_options
       {
-        url:     faraday_url,
+        url: api_endpoint,
         headers: faraday_headers
       }
     end
@@ -24,12 +26,13 @@ module Geekbot
       }
     end
 
-    def faraday_url
+    def api_endpoint
       @api_endpoint ||= ENV['GEEKBOT_API_ENDPOINT'] || 'https://api.geekbot.io'
     end
 
     def faraday_headers
       return default_headers unless access_token
+
       default_headers.merge(Authorization: access_token.to_s)
     end
 

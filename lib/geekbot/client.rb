@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'geekbot/api_methods'
 require 'geekbot/connection'
 require 'geekbot/response'

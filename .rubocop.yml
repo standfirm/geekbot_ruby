@@ -8,3 +8,8 @@ Metrics/BlockLength:
   Max: 30
   Exclude:
     - 'spec/**/*'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - Gemfile
+    - Rakefile

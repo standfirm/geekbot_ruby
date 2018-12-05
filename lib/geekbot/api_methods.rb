@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Geekbot
   module ApiMethods
     def index_teams(params: nil, headers: nil)

@@ -1,12 +1,13 @@
+# frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'geekbot/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'geekbot'
   spec.version       = Geekbot::VERSION
-  spec.authors       = ['Pegasus204', 'eitoball']
+  spec.authors       = %w[Pegasus204 eitoball]
   spec.email         = ['tenma.fukaya@misoca.jp', 'eitoball@gmail.com']
 
   spec.summary       = 'Geekbot API client library, written in Ruby'
